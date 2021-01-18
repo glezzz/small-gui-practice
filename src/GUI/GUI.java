@@ -23,7 +23,7 @@ public class GUI implements ActionListener {
         button = new JButton("Click me");
         resetButton = new JButton("Reset");
         button.addActionListener(this);
-        resetButton.addActionListener(this);
+        resetButton.addActionListener(new SecondButton());
 
         label = new JLabel("Number of clicks: 0");
 
@@ -48,5 +48,14 @@ public class GUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         count++;
         label.setText("Number of clicks: " + count);
+    }
+
+    class SecondButton implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            count = 0;
+            label.setText("Number of clicks: " + count);
+
+        }
     }
 }
